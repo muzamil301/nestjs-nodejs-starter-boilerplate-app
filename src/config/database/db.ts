@@ -1,5 +1,4 @@
 const sqlConfig = {
-    // type: 'mysql',
     type: 'postgres',
     url: 'postgres://postgres:password@localhost:5444',
     host: 'localhost',

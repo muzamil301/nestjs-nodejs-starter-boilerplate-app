@@ -8,16 +8,16 @@ export class CatsController {
  
   @Get()
   async getCats() {
-    // return `This action returns all cats (limit: ${query.limit} items)`;
-    // return ['cat 1', 'cat 2'];
-
-    return this.catsService.findAll();
-
+    const data = await this.catsService.findAll();
+    console.log(data);
+    return data;
+    
+    
   }
 
   @Post()
-  create(@Body() createCatDto: CreateCatDto) {
-    return 'This action adds a new cat';
+  create(@Body() createCatDto: CreateCatDto){
+    return this.catsService.create(createCatDto)
   }
 
   @Get(':id')

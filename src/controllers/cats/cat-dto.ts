@@ -1,10 +1,9 @@
 
 export class CreateCatDto {
-  id:number;
   name: string;
   age: string;
   breed: string;
-  isActive:boolean;
+  isActive?:boolean;
 }
 
 export class UpdateCatDto{

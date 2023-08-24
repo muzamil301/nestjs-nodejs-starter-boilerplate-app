@@ -6,16 +6,15 @@ import { CreateCatDto } from './cat-dto';
 
 @Injectable()
 export class CatsService {
-  constructor(
-    @InjectRepository(CatEntity)
-    private catRepository: Repository<CatEntity>
-  ){}
+  constructor(@InjectRepository(CatEntity) private catRepository: Repository<CatEntity>){}
   
-//   create(cat: CreateCatDto): Promise<CreateCatDto> { 
-//     return this.catRepository.save(cat);
-//   }
+  create(cat: CreateCatDto): Promise<CreateCatDto> { 
+    return this.catRepository.save(cat);
+  }
 
-  findAll(): Promise<CreateCatDto[]> {
-    return this.catRepository.find();
+  async findAll(): Promise<CreateCatDto[]> {
+    const res = await this.catRepository.find();
+    console.log(res)
+    return res;
   }
 }
